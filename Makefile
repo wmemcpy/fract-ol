@@ -19,23 +19,23 @@ $(NAME): $(OFILE)
 	@make -C $(LIBFT)
 	@make -C $(LIBX)
 	@$(CC) $(CFLAGS) -o $(NAME) $(OFILE) -L $(LIBFT) -lft -L $(LIBX) -lmlx -lXext -lX11 -lm -lbsd
-	@echo -e "\033[32m----------------[\033[33m$(NAME)\033[32m is compiled]----------------\033[0m"
+	@printf "\033[32m----------------[\033[33m$(NAME)\033[32m is compiled]----------------\033[0m\n"
 
 $(OBJS)%.o: $(SRCS)%.c
 	@mkdir -p $(OBJS)
 	@$(CC) $(CFLAGS) -c $< -o $@ -lmlx -lXext -lX11 -lm -lbsd -I $(LIBFT) -I $(LIBX)
-	@echo -e "\033[32m[`expr $$(expr $$(find $(OBJS) -name "*.o" | wc -l) \* 100) / $$(find $(SRCS) -name "*.c" | wc -l)`%]\033[0m Compilation de \033[33m$<\033[0m"
+	@printf "\033[32m[`expr $$(expr $$(find $(OBJS) -name \"*.o\" | wc -l) \* 100) / $$(find $(SRCS) -name \"*.c\" | wc -l)`%%]\033[0m Compilation de \033[33m$<\033[0m\n"
 
 clean:
 	@make clean -C $(LIBFT)
 	@make clean -C $(LIBX)
 	@rm -rf $(OBJS)
-	@echo -e "\033[31m----------------[\033[33m$(OBJS)\033[31m deleted]----------------\033[0m"
+	@printf "\033[31m----------------[\033[33m$(OBJS)\033[31m deleted]----------------\033[0m\n"
 
 fclean: clean
 	@make fclean -C $(LIBFT)
 	@rm -f $(NAME)
-	@echo -e "\033[31m----------------[\033[33m$(NAME)\033[31m deleted]----------------\033[0m"
+	@printf "\033[31m----------------[\033[33m$(NAME)\033[31m deleted]----------------\033[0m\n"
 
 re: fclean all
 

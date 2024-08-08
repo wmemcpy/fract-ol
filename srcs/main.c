@@ -1,23 +1,11 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: cfrancie <cfrancie@student.42.fr>          +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/06 21:57:31 by cfrancie          #+#    #+#             */
-/*   Updated: 2023/01/11 00:01:16 by cfrancie         ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
-
 #include "../includes/main.h"
 
 bool	print_param(void)
 {
-	ft_putstr("Usage: ./fractol [SECTION] [OPTION...]\nSECTION:\
+	ft_putstr_fd("Usage: ./fractol [SECTION] [OPTION...]\nSECTION:\
 	\n\tmandelbrot\n\tjulia\n\tburningship\nOPTIONS:\
 	\n\t-i=[ITERATION]\t\t: set the number of iteration (∈ ℕ)\n\t\
-	-re=[Real] -im=[Im]: set the complex number (Re + Im) (julia only)\n");
+	-re=[Real] -im=[Im]: set the complex number (Re + Im) (julia only)\n", 2);
 	return (false);
 }
 
